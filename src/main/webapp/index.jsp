@@ -1,114 +1,134 @@
+<!DOCTYPE html>
 <html>
-<head>
-<script type="text/javascript" src="validate.js"></script>
-</head>
+<style>
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn,.signupbtn {float:left;width:50%}
+
+/* Add padding to container elements */
+.container {
+    padding: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    color: #000;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+       width: 100%;
+    }
+}
+</style>
 <body>
-<form action="#" name="StudentRegistration" onsubmit="return(validate());">
 
-<table cellpadding="2" width="20%" bgcolor="99FFFF" align="center"
-cellspacing="2">
+<h2>Modal Signup Form</h2>
 
-<tr>
-<td colspan=2>
-<center><font size=4><b>Student Registration Form</b></font></center>
-</td>
-</tr>
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
 
-<tr>
-<td>Name</td>
-<td><input type=text name=textnames id="textname" size="30"></td>
-</tr>
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="container">
+      <label><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required>
 
-<tr>
-<td>Father Name</td>
-<td><input type="text" name="fathername" id="fathername"
-size="30"></td>
-</tr>
-<tr>
-<td>Postal Address</td>
-<td><input type="text" name="paddress" id="paddress" size="30"></td>
-</tr>
+      <label><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
 
-<tr>
-<td>Personal Address</td>
-<td><input type="text" name="personaladdress"
-id="personaladdress" size="30"></td>
-</tr>
+      <label><b>Repeat Password</b></label>
+      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+      <input type="checkbox" checked="checked"> Remember me
+      <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
-<tr>
-<td>Sex</td>
-<td><input type="radio" name="sex" value="male" size="10">Male
-<input type="radio" name="sex" value="Female" size="10">Female</td>
-</tr>
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Sign Up</button>
+      </div>
+    </div>
+  </form>
+</div>
 
-<tr>
-<td>City</td>
-<td><select name="City">
-<option value="-1" selected>select..</option>
-<option value="New Delhi">NEW DELHI</option>
-<option value="Mumbai">MUMBAI</option>
-<option value="Goa">GOA</option>
-<option value="Patna">PATNA</option>
-</select></td>
-</tr>
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
 
-<tr>
-<td>Course</td>
-<td><select name="Course">
-<option value="-1" selected>select..</option>
-<option value="B.Tech">B.TECH</option>
-<option value="MCA">MCA</option>
-<option value="MBA">MBA</option>
-<option value="BCA">BCA</option>
-</select></td>
-</tr>
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
 
-<tr>
-<td>District</td>
-<td><select name="District">
-<option value="-1" selected>select..</option>
-<option value="Nalanda">NALANDA</option>
-<option value="UP">UP</option>
-<option value="Goa">GOA</option>
-<option value="Patna">PATNA</option>
-</select></td>
-
-</tr>
-
-<tr>
-<td>State</td>
-<td><select Name="State">
-<option value="-1" selected>select..</option>
-<option value="New Delhi">NEW DELHI</option>
-<option value="Mumbai">MUMBAI</option>
-<option value="Goa">GOA</option>
-<option value="Bihar">BIHAR</option>
-</select></td>
-</tr>
-<tr>
-<td>PinCode</td>
-<td><input type="text" name="pincode" id="pincode" size="30"></td>
-
-</tr>
-<tr>
-<td>EmailId</td>
-<td><input type="text" name="emailid" id="emailid" size="30"></td>
-</tr>
-
-<tr>
-<td>DOB</td>
-<td><input type="text" name="dob" id="dob" size="30"></td>
-</tr>
-
-<tr>
-<td>MobileNo</td>
-<td><input type="text" name="mobileno" id="mobileno" size="30"></td>
-</tr>
-<tr>
-<td><input type="reset"></td>
-<td colspan="2"><input type="submit" value="Submit Form" /></td>
-</tr>
-</table>
-</form>
 </body>
 </html>
