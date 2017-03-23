@@ -15,13 +15,13 @@ package webserver
 
 if webserver == 'apache2'
 execute "Deloy Application to Apache webserver" do
-command     "cp -r /home/vagrant/Nexusfiles/Realtime/ /var/www/html"
+command     "cp -r /home/ubuntu2/Nexusfiles/Realtime/ /var/www/html"
 end
 end
 
 if webserver == 'tomcat7'
 execute "Deloy Application to Tomcat webserver" do
-command     "cp -r /home/vagrant/Nexusfiles/Realtime/ /var/lib/tomcat7/webapps"
+command     "cp -r /home/ubuntu2/Nexusfiles/Realtime/ /var/lib/tomcat7/webapps"
 end
 end
 
