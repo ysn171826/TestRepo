@@ -34,13 +34,13 @@
         <repository>
             <id>deployment</id>
             <name>Internal Releases</name>
-            <url>http://172.16.150.110:8085/nexus/content/repositories/releases/</url>
+            <url>http://localhost:8082/nexus/content/repositories/releases/</url>
 			<uniqueVersion>false</uniqueVersion>
         </repository>
         <snapshotRepository>
             <id>deployment</id>
             <name>Internal Snapshot Releases</name>
-                     <url>http://172.16.150.110:8085/nexus/content/repositories/snapshots/</url>
+                     <url>http://localhost:8082/nexus/content/repositories/snapshots/</url>
 			<uniqueVersion>false</uniqueVersion>
         </snapshotRepository>
     </distributionManagement>
