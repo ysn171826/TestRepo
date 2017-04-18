@@ -3,7 +3,7 @@
 	<groupId>in.mphasis</groupId>
 	<artifactId>DevOpsDemoProject</artifactId>
 	<packaging>war</packaging>
-	<version>1.0.4-SNAPSHOT</version>
+	<version>1.0.4</version>
 	<name>DevOps Demo Project</name>
 	<url>http://maven.apache.org</url>
 	
@@ -65,7 +65,8 @@
 		<url>https://github.com/NagireddyGuduru/client-demo-project</url>
 		<connection>scm:git:https://github.com/NagireddyGuduru/client-demo-project.git</connection>
 		<developerConnection>scm:git:https://github.com/NagireddyGuduru/client-demo-project.git</developerConnection>
-	  </scm>
+	    <tag>DevOpsDemoProject-1.0.4</tag>
+  </scm>
 	<profiles>
 	  <profile>
       <id>coverage-per-test</id>
