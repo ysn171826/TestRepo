@@ -15,8 +15,10 @@ node{
   stage('DeployApplication'){
       echo "Deploying the application using chef"
   }
-  stage('Run Selenium Test'){
-      echo "Running Selenium Test"
+ stage('Run Selenium Test'){
+    dir ("D:\\PROJECT_INFO\\DEVOPS\\selenium_project_bat_file") { 
+        bat 'Selenium.bat' 
+     } 
   }
   stage('Performane Tests'){
                 bat '''D:
