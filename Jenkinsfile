@@ -1,6 +1,6 @@
 node{
  stage('Source'){
-    git branch: 'test_branch', credentialsId: 'latest-github-cred', url: 'https://github.com/NagireddyGuduru/client-demo-project.git'
+    checkout scm
  }
   def mvnHome = tool 'Maven HOme'
  stage('Build'){
