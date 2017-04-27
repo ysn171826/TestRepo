@@ -13,7 +13,9 @@ node{
       bat "${mvnHome}/bin/mvn clean deploy" 
   }
   stage('DeployApplication'){
-      echo "Deploying the application using chef"
+     sshagent(['chefid']) {
+      bat 'ssh -o StrictHostKeyChecking=no -l ubuntu 172.16.151.77 uname -a'
+     }
   }
  stage('Run Selenium Test'){
     dir ("D:\\PROJECT_INFO\\DEVOPS\\selenium_project_bat_file") { 
