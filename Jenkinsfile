@@ -13,7 +13,7 @@ node{
       bat "${mvnHome}/bin/mvn clean deploy" 
   }
   stage('DeployApplication'){
-      bat 'copy target\myweb.war C:\apache-tomcat-7.0.72\webapps\'
+      bat 'copy target\\myweb.war C:\\apache-tomcat-7.0.72\\webapps\\'
      }
  }
  
