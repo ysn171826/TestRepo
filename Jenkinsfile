@@ -6,13 +6,7 @@ node{
  stage('Build'){
       bat "${mvnHome}/bin/mvn clean install" 
   }
-  stage('CodeQualityCheck'){
-      bat "${mvnHome}/bin/mvn clean sonar:sonar" 
-  }
-  stage('UploadArtifacts'){
-      bat "${mvnHome}/bin/mvn clean deploy" 
-  }
-  stage('DeployApplication'){
+ stage('DeployApplication'){
       bat 'copy target\\myweb.war C:\\apache-tomcat-7.0.72\\webapps\\'
      }
  }
