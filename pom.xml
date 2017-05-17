@@ -3,7 +3,7 @@
 	<groupId>in.mphasis</groupId>
 	<artifactId>DevOpsDemoProject</artifactId>
 	<packaging>war</packaging>
-	<version>12.0.4-SNAPSHOT</version>
+	<version>13.0.4-SNAPSHOT</version>
 	<name>DevOps Demo Project</name>
 	<url>http://maven.apache.org</url>
 	
