@@ -7,7 +7,7 @@ node{
       bat "${mvnHome}/bin/mvn clean install" 
   }
   stage('CodeQualityCheck'){
-      bat "${mvnHome}/bin/mvn clean sonar:sonar" 
+      bat "${mvnHome}/bin/mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Pcoverage-per-test sonar:sonar" 
   }
   stage('UploadArtifacts'){
       bat "${mvnHome}/bin/mvn clean deploy" 
