@@ -17,12 +17,14 @@ node{
   }
  stage('Run Selenium Test'){
 	 echo "Running Selenium Tests"
+	 build job: 'DEVOPS_DEMO_PROJECT/AUTOMATE_DEPLOYEMENT_PROCESS/RunSeleniumTests'
   //  dir ("D:\\PROJECT_INFO\\DEVOPS\\selenium_project_bat_file") { 
   //      bat 'Selenium.bat' 
     // } 
   }
   stage('Performane Tests'){
 	  echo "Running Performance Testing"
+	  build job: 'DEVOPS_DEMO_PROJECT/AUTOMATE_DEPLOYEMENT_PROCESS/RunPerformanceTest'
       //          bat '''D:
 	//			cd D:\\Jmeeter\\apache-jmeter-3.1\\bin
 	  //          jmeter -n -t D:\\Jmeeter\\apache-jmeter-3.1\\extras\\Test.jmx -l D:\\Jmeeter\\demo-report.jtl'''
