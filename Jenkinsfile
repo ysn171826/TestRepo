@@ -2,7 +2,7 @@ node{
  stage('Source'){
     checkout scm
  }
-  def mvnHome = tool 'Maven HOme'
+  def mvnHome = tool 'MAVEN_HOME'
  stage('Build'){
       bat "${mvnHome}/bin/mvn clean install" 
   }
