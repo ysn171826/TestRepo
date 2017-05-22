@@ -1,29 +1,35 @@
 node{
  stage('Source'){
+	 echo "In This Stage, Getting the source code from GitHub"
     checkout scm
  }
   def mvnHome = tool 'MAVEN_HOME'
  stage('Build'){
+	 echo "In this Stage, Doing compile and package"
       bat "${mvnHome}/bin/mvn clean install" 
   }
   stage('CodeQualityCheck'){
+	  echo "In This Stage, Doing static code analysis and Code coverage"
       bat "${mvnHome}/bin/mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Pcoverage-per-test sonar:sonar" 
   }
   stage('UploadArtifacts'){
+	  echo "In This Stage, Uploading Compiled Code Binaries into Nexus"
       bat "${mvnHome}/bin/mvn clean deploy" 
   }
   stage('DeployApplication'){
-      echo "Deploying the application using chef"
+      echo "In This Stage, Triggering Deploying the application using chef"
+      build job: 'DEVOPS_DEMO_PROJECT/AUTOMATE_DEPLOYEMENT_PROCESS/DeployApplicationUsingChef'
+	  
   }
- stage('Run Selenium Test'){
-	 echo "Running Selenium Tests"
+ stage('Run Selenium Tests'){
+	 echo "In This Stage, Triggering a job to Run Selenium Tests"
 	 build job: 'DEVOPS_DEMO_PROJECT/AUTOMATE_DEPLOYEMENT_PROCESS/RunSeleniumTests'
   //  dir ("D:\\PROJECT_INFO\\DEVOPS\\selenium_project_bat_file") { 
   //      bat 'Selenium.bat' 
     // } 
   }
   stage('Performane Tests'){
-	  echo "Running Performance Testing"
+	  echo "In This Stage, Triggering a job to Run Performance Tests"
 	  build job: 'DEVOPS_DEMO_PROJECT/AUTOMATE_DEPLOYEMENT_PROCESS/RunPerformanceTest'
       //          bat '''D:
 	//			cd D:\\Jmeeter\\apache-jmeter-3.1\\bin
