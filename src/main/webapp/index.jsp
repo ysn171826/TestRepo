@@ -91,7 +91,7 @@ button {
 </style>
 <body>
 
-<h2>Modal Signup Form - DEVOPS DEMO -Tomcat deploy test</h2>
+<h2>Modal Signup Form - DEVOPS DEMO -Tomcat deploy test - Demo Pipeline</h2>
 
 <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
 
